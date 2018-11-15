@@ -1,0 +1,49 @@
+<html>
+<header>
+<meta 
+ name="viewport" 
+ content="width=device-width, initial-scale=1.0">
+</header>
+<body>
+<input type="file"id="if">
+<br>
+<button onclick="load()">
+Load
+</button>
+<br>
+<textarea id="ta"cols="40"rows="10">
+</textarea>
+<br>
+<audio id="ad"controls>
+ <source id="sc"src="">
+</audio>
+<br>
+<button onclick="play(0)">
+Play
+</button>
+<script>
+iF=document.getElementById("if");
+tA=document.getElementById("ta");
+aD=document.getElementById("ad");
+sC=document.getElementById("sc");
+function load()
+{
+ var f2l=iF.files[0];
+ var fR=new FileReader();
+ fR.onload=
+ function(fileLoadedEvent) 
+ {
+  var t=fileLoadedEvent.target.result;
+  tA.value=t;
+ };
+ fR.readAsText(f2l,"UTF-8");
+}
+function play(i){
+ var l=ta.value.split(/\r\n|\n/);
+ sC.src=l[i];
+ aD.load();
+ aD.play();
+}
+</script>
+</body>
+</html>

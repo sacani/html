@@ -1,0 +1,78 @@
+<html>
+<head>
+<meta
+ name="viewport"
+ content="width=device-width,initial-scale=1.0"
+>
+</head>
+<body>
+<p>
+<input 
+ type="text" 
+ id="f2Ld"
+ style="width:100%;font-size:22"
+>
+</p>
+<p>
+<button 
+ onclick="ldFl()" 
+ style="width:100%;font-size:24px"
+>
+Get File
+</button>
+</p>
+<textarea 
+ id="fGet"
+ style="width:100%;height:100%;font-size:10px"
+></textarea>
+</p>
+<p>
+<input 
+ type="text"
+ id="txt2Sv"
+ style="width:100%;font-size:24px"
+>
+</p>
+<p>
+<button 
+ onclick="svTxt()"
+ style="width:100%;font-size:24px"
+>
+Save Text
+</button>
+</p>
+<script>
+var fGet=document.getElementById("fGet");
+var f2Ld=document.getElementById("f2Ld");
+var txt2Sv=document.getElementById("txt2Sv");
+function ldFl(){
+  var xhttp=new XMLHttpRequest();
+  xhttp.onreadystatechange=function(){
+    if(this.readyState==4 && this.status==200){
+      fGet.value=this.responseText;
+    }
+  };
+  xhttp.open("GET",f2Ld.value,true);
+  xhttp.send();
+}
+function svTxt(){
+  var txt2SvBlb=new Blob(
+    [fGet.value], 
+    {type:"text/plain"}
+  );
+  var txt2SvURL= 
+  window.URL.createObjectURL(txt2SvBlb);
+  var dwnldLnk=document.createElement("a");
+  dwnldLnk.download=txt2Sv.value;
+  dwnldLnk.innerHTML="Download File";
+  dwnldLnk.href=txt2SvURL;
+  dwnldLnk.onclick=(event)=>{
+    document.body.removeChild(event.target);
+  }
+  dwnldLnk.style.display="none";
+  document.body.appendChild(dwnldLnk);
+  dwnldLnk.click();
+}
+</script>
+</body>
+</html>

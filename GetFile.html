@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta 
+ name="viewport" 
+ content="width=device-width,initial-scale=1.0">
+</head>
+<body>
+<p>
+<input 
+ type="text" 
+ id="f2Ld"
+ style="width:100%;font-size:22"
+>
+</p>
+<p>
+<button 
+ onclick="loadFile()" 
+ style="width:100%;font-size:24px"
+>
+Get File
+</button>
+</p>
+<p>
+<textarea 
+ id="fGet" 
+ style="width:100%;height:100%;font-size:10px"
+></textarea>
+</p>
+<script type="text/javascript">
+var fGet=document.getElementById("fGet");
+var f2Ld=document.getElementById("f2Ld");
+function loadFile(){
+  var xhttp=new XMLHttpRequest();
+  xhttp.onreadystatechange=function(){
+    if(this.readyState==4 && this.status==200){
+      fGet.value=this.responseText;
+    }
+  };
+  xhttp.open("GET",f2Ld.value,true);
+  xhttp.send();
+}
+</script>
+</body>
+</html>

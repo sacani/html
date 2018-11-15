@@ -1,0 +1,137 @@
+<html>
+<head>
+<meta
+ name="viewport"
+ content="width=device-width,initial-scale=1.0"
+>
+<script>
+console =
+ {
+ log: (string)=>{ 
+  t2.value =
+  t2.value +
+  string +
+  '\r'
+  },
+ clear: ()=>{
+  t2.value=""
+  }
+ }
+function log(string)
+{ 
+t2.value =
+t2.value +
+string +
+'\r'
+}
+function clear()
+{
+t2.value=""
+}
+function start()
+{
+eval(t1.value)
+}
+function load()
+{
+var fl2Ld = inFl2Ld.files[0]
+var fileReader = new FileReader()
+fileReader.onload = function(flLdE) 
+ {
+ var txtLd = flLdE.target.result
+ t1.value = txtLd
+ }
+fileReader.readAsText(
+ fl2Ld, 
+ "UTF-8"
+ )
+}
+function save()
+{
+var txt2Sv = t1.value
+var txt2SvBlob = 
+new Blob(
+ [txt2Sv], 
+ {type:"text/plain"}
+ )
+var txt2SvURL =
+window.URL.createObjectURL(
+ txt2SvBlob
+ )
+var file2Sv = inFile2Sv.value
+var downloadLink = document.createElement("a")
+downloadLink.download = file2Sv
+downloadLink.innerHTML = "Download File"
+downloadLink.href = txt2SvURL
+downloadLink.onclick = destroyClicked
+downloadLink.style.display = "none"
+document.body.appendChild(downloadLink)
+downloadLink.click()
+}
+function destroyClicked(e)
+{
+document.body.removeChild(
+ e.target
+ )
+}
+</script>
+</head>
+<body>
+<p>
+<input 
+ type="file" 
+ id="inFl2Ld"
+ style="width:100%;font-size:22"
+>
+</p>
+<p>
+<button 
+ onclick="load()" 
+ style="width:100%;font-size:24px"
+>
+Load File
+</button>
+</p>
+<p>
+<textarea 
+ id=t1
+ style="width:100%;height:50%;font-size:10"
+></textarea>
+</p>
+<p>
+<button 
+ onclick="save()"
+ style="width:100%;font-size:24px"
+>
+Save Text
+</button>
+</p>
+<p>
+<button
+ onclick="start();"
+ style="width:100%;font-size:24px"
+>
+Execute
+</button>
+</p>
+<p>
+<button
+ onclick="console.clear();"
+ style="width:100%;font-size:24px"
+>
+Clear
+</button>
+</p>
+<p>
+<input 
+ id="inFile2Sv"
+ style="width:100%;font-size:24px"></input>
+</p>
+<p>
+<textarea
+ id=t2
+ style="width:100%;height:50%;font-size:10"
+></textarea>
+</p>
+</body>
+</html>
