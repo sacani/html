@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+  <script>
+  var t = getElementById( 't' )
+  const console = {
+    log: ( string ) => {
+      t.value += string
+    },
+    clear: () => {
+      t.value = ''
+    }
+  }
+  console.log( 'hello' )
+  </script>
+</head>
+<body>
+  <textarea id='t'></textarea>
+</body>
+</html>
