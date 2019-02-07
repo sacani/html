@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset = 'utf-8'/>
+    <script>
+      console = {
+        log: (string) => {
+          t2.value += string + '\r'
+        },
+        clear: () => {
+          t2.value = ''
+        }
+      }
+
+      function bodyOnLoad(){
+        console.log( 'hello' )
+      }
+    </script>
+  </head>
+  <body onload = 'bodyOnLoad();'>
+    <textarea id = 't2'></textarea>
+  </body>
+</html>
