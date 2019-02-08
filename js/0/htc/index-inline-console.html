@@ -1,0 +1,20 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <meta charset = 'utf-8'>
+  </head>
+  <body>
+    <textarea id='t'></textarea>
+    <script>
+      const console = {
+        log: ( string ) => {
+          t.value += string + '\r'
+        },
+        clear: () => {
+          t.value = ''
+        }
+      }
+      console.log( 'htc/index-inline-console' )
+    </script>
+  </body>
+</html>

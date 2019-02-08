@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <script>
+  const t = getElementById( 't' )
+  const console = {
+    log: ( string ) => {
+      t.value += string
+    },
+    clear: () => {
+      t.value = ''
+    }
+  }
+  function start(){
+    t.value='hello'
+  }
+  </script>
+</head>
+<body>
+  <button onClick='start();'>
+    Start
+  </button>
+  <p/>
+  <textarea id='t'></textarea>
+</body>
+</html>
