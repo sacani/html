@@ -1,0 +1,1 @@
+﻿t.value = `htc/index.js`

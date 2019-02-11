@@ -2,13 +2,16 @@
 <html>
   <head>
     <meta charset = 'utf-8'/>
+  </head>
+  <body onload = 'bodyOnLoad();'>
+    <textarea id = 't'></textarea>
     <script>
       console = {
         log: (string) => {
-          t2.value += string + '\r'
+          t.value += string + '\r'
         },
         clear: () => {
-          t2.value = ''
+          t.value = ''
         }
       }
 
@@ -16,8 +19,5 @@
         console.log( 'hello' )
       }
     </script>
-  </head>
-  <body onload = 'bodyOnLoad();'>
-    <textarea id = 't2'></textarea>
   </body>
 </html>
