@@ -60,3 +60,14 @@ var result = ( function(){
     return name 
 })()
 console.log(result)
+
+function myFun( a, b, ...manyMoreArgs){
+  console.log( "a", a )
+  console.log( "b", b )
+  
+  manyMoreArgs.forEach( function( item, index, array ){
+    console.log( item + ' ' + index )
+  })
+}
+
+myFun( "one", "two", "three", "four", "five", "six" )
