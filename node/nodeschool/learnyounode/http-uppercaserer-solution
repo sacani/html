@@ -1,0 +1,65 @@
+
+
+# LEARN YOU THE NODE.JS FOR MUCH WIN!
+
+## HTTP UPPERCASERER (Exercise 12 of 13)
+
+
+Your submission results compared to the expected:
+
+                 ACTUAL                                 EXPECTED                
+────────────────────────────────────────────────────────────────────────────────
+
+   "JOEY"                              ==    "JOEY"                             
+   "BLOWIE"                            ==    "BLOWIE"                           
+   "GROUSE"                            ==    "GROUSE"                           
+   "KELPIE"                            ==    "KELPIE"                           
+   "COATHANGER"                        ==    "COATHANGER"                       
+   "MIDDY"                             ==    "MIDDY"                            
+   "MATES"                             ==    "MATES"                            
+   "SLAPS"                             ==    "SLAPS"                            
+   "COCKIE"                            ==    "COCKIE"                           
+   "DEAD HORSE"                        ==    "DEAD HORSE"                       
+   ""                                  ==    ""                                 
+
+────────────────────────────────────────────────────────────────────────────────
+
+ ✓
+
+ Submission results match expected
+
+
+# PASS
+
+ Your solution to HTTP UPPERCASERER passed!
+
+ Here's the official solution in case you want to compare notes:
+
+─────────────────────────────────────────────────────────────────────────────
+
+    var http = require('http')
+    var map = require('through2-map')
+    
+    var server = http.createServer(function (req, res) {
+      if (req.method !== 'POST') {
+        return res.end('send me a POST\n')
+      }
+    
+      req.pipe(map(function (chunk) {
+        return chunk.toString().toUpperCase()
+      })).pipe(res)
+    })
+    
+    server.listen(Number(process.argv[2]))
+
+─────────────────────────────────────────────────────────────────────────────
+ You've finished all the challenges! Hooray!
+
+─────────────────────────────────────────────────────────────────────────────
+
+  » To print these instructions again, run: learnyounode print
+  » To execute your program in a test environment, run: learnyounode run
+    program.js
+  » To verify your program, run: learnyounode verify program.js
+  » For help run: learnyounode help
+
